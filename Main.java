@@ -4,9 +4,9 @@ import java.awt.event.*;
 import java.awt.*;
 class Main extends JFrame implements ActionListener{
 	static String[] names = {
-	"Damon Hill","Reigning Champion","Stoffel Vandoorne","Daniel Riciardo","Lando Norris","Sebastian Vettel","Nicholas Latifi","Kimi Räikkönen","Romain Grosjean","Nikita Mazepin",
+	"Damon Hill","Reigning Champion","Stoffel Vandoorne","Daniel Riciardo","Lando Norris","Sebastian Vettel","Nicholas Latifi","Kimi Raikkonen","Romain Grosjean","Nikita Mazepin",
 	"Pierre Gasly",	"Sergio Perez","Ayrton Senna","Pastor Maldonado","Fernando Alonso","15","Charles Leclerc","Jules Bianchi","Lance Stroll","Felipe Massa",
-	"Kevin Magnussen","Esteban Gutiérrez","Yuki Tsunoda","Alex Albon","Zhou Guanyu","Jean-Éric Vergne","Daniil Kvyat","Nico Hulkenberg","Brendon Hartley","29",
+	"Kevin Magnussen","Esteban Gutierrez","Yuki Tsunoda","Alex Albon","Zhou Guanyu","Jean-Eric Vergne","Daniil Kvyat","Nico Hulkenberg","Brendon Hartley","29",
 	"Jolyon Palmer","Esteban Ocon","Michael Schumacher","Max Verstappen","34","Sergey Sirotkin","36","37","38","39",
 	"40","Susie Wolff","42","43","Lewis Hamilton","45","46","Mick Schumacher","48","49",
 	"50","51","52","Alexander Rossi","54","Carlos Sainz","56","57","58","59",
@@ -20,7 +20,7 @@ class Main extends JFrame implements ActionListener{
 	ClassLoader loader = this.getClass().getClassLoader();
 	Container content = getContentPane();
 	JPanel pnl = new JPanel();
-	JPanel grid = new JPanel(new GridLayout(3,1));
+	Box box = Box.createVerticalBox();
 	JLabel title = new JLabel(new ImageIcon(loader.getResource("Heading.png")));
 	JLabel numlbl = new JLabel("");
 	JLabel drvlbl = new JLabel("");
@@ -36,33 +36,25 @@ class Main extends JFrame implements ActionListener{
 
 		numlbl.setToolTipText("Number");
 		drvlbl.setToolTipText("Driver name");
-		//title.setHorizontalTextPosition(JLabel.CENTER);
-		//numlbl.setHorizontalTextPosition(JLabel.CENTER);
-		//drvlbl.setHorizontalTextPosition(JLabel.CENTER);
-		//title.setVerticalTextPosition(JLabel.TOP);
-		//numlbl.setVerticalTextPosition(JLabel.CENTER);
-		//drvlbl.setVerticalTextPosition(JLabel.CENTER);
-		//btn.setVerticalTextPosition(JLabel.BOTTOM);
 		btn.addActionListener(this);
-		//leftlbl.setVerticalTextPosition(JLabel.BOTTOM);
-		//leftlbl.setHorizontalTextPosition(JLabel.CENTER);
 
 		content.setBackground(Color.white);
 		title.setBackground(Color.white);
 		pnl.setBackground(Color.white);
-		grid.setBackground(Color.white);
-		//numlbl.setBackground(Color.white);
-		//drvlbl.setBackground(Color.RED);
+		box.setBackground(Color.white);
 		btn.setBackground(Color.white);
 		leftlbl.setBackground(Color.white);
 
-		grid.add(title);
-		grid.add(numlbl);
-		grid.add(drvlbl);
-		pnl.add(btn);
-		pnl.add(leftlbl);
-		content.add("North",grid);
-		content.add("South",pnl);
+		numlbl.setFont(new Font("SansSerif",Font.PLAIN,64));
+		drvlbl.setFont(new Font("SansSerif",Font.PLAIN,32));
+
+		box.add(title);
+		box.add(numlbl);
+		box.add(drvlbl);
+		box.add(btn);
+		box.add(leftlbl);
+		pnl.add(box);
+		add("North",pnl);
 		setVisible(true);
 		actionPerformed(null); // to set initial number
 	}
