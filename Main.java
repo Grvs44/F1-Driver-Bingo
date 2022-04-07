@@ -5,15 +5,15 @@ import java.awt.*;
 class Main extends JFrame implements ActionListener{
 	static String[] names = {
 	"Damon Hill","Reigning Champion","Stoffel Vandoorne","Daniel Riciardo","Lando Norris","Sebastian Vettel","Nicholas Latifi","Kimi Raikkonen","Romain Grosjean","Nikita Mazepin",
-	"Pierre Gasly",	"Sergio Perez","Ayrton Senna","Pastor Maldonado","Fernando Alonso","15","Charles Leclerc","Jules Bianchi","Lance Stroll","Felipe Massa",
-	"Kevin Magnussen","Esteban Gutierrez","Yuki Tsunoda","Alex Albon","Zhou Guanyu","Jean-Eric Vergne","Daniil Kvyat","Nico Hulkenberg","Brendon Hartley","29",
-	"Jolyon Palmer","Esteban Ocon","Michael Schumacher","Max Verstappen","34","Sergey Sirotkin","36","37","38","39",
-	"40","Susie Wolff","42","43","Lewis Hamilton","45","46","Mick Schumacher","48","49",
-	"50","51","52","Alexander Rossi","54","Carlos Sainz","56","57","58","59",
-	"60","61","62","George Russell","64","65","66","67","68","69",
-	"70","71","72","73","74","75","76","Valteri Bottas","78","79",
-	"80","81","82","83","84","85","86","87","Robert Kubica","89",
-	"90","91","92","93","Pascal Werlein","95","96","97","Roberto Merhi","Antonio Giovanazzi"
+	"Pierre Gasly",	"Sergio Perez","Ayrton Senna","Pastor Maldonado","Fernando Alonso","","Charles Leclerc","Jules Bianchi","Lance Stroll","Felipe Massa", // 15
+	"Kevin Magnussen","Esteban Gutierrez","Yuki Tsunoda","Alex Albon","Zhou Guanyu","Jean-Eric Vergne","Daniil Kvyat","Nico Hulkenberg","Brendon Hartley","", // 29
+	"Jolyon Palmer","Esteban Ocon","Michael Schumacher","Max Verstappen","34","Sergey Sirotkin","","","","", // 36 37 38 39
+	"Paul di Resta","Susie Wolff","","","Lewis Hamilton","","","Mick Schumacher","","", // 40 42 43 45 46 48 49
+	"","","","Alexander Rossi","","Carlos Sainz","","","","", // 50 51 52 54 56 57 58 59
+	"","","","George Russell","","","","","","", // 60 61 62 64 65 66 67 68 69
+	"","","","","","","","Valteri Bottas","","", // 70 71 72 73 74 75 76 78 79
+	"","","","","","","","","Robert Kubica","Jack Aitken", // 80 81 82 83 84 85 86 87
+	"","","","","Pascal Werlein","","","","Roberto Merhi","Antonio Giovanazzi" // 90 91 92 93 95 96 97
 	};
 	boolean[] namesSelected = new boolean[100];
 	int namesLeft = 100;
@@ -30,7 +30,7 @@ class Main extends JFrame implements ActionListener{
 		Main gui = new Main();
 	}
 	public Main(){
-		super("F1 Driver Bingo");
+		super("F1 Driver Bingo 2022");
 		setSize(660,320);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
