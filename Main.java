@@ -2,6 +2,8 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.net.URL;
+import javax.sound.sampled.*;
 class Main extends JFrame implements ActionListener{
 	static String[] names = {
 	"Damon Hill","Reigning Champion","Stoffel Vandoorne","Daniel Riciardo","Lando Norris","Sebastian Vettel","Nicholas Latifi","Kimi Raikkonen","Romain Grosjean","Nikita Mazepin",
@@ -69,5 +71,21 @@ class Main extends JFrame implements ActionListener{
 		numlbl.setText(String.valueOf(random));
 		drvlbl.setText(names[random]);
 		if(namesLeft == 0) btn.setEnabled(false);
+		playSound("test.wav");
+	}
+	public static synchronized void playSound(final String url) {
+  		new Thread(new Runnable() {
+    		public void run() {
+      			try {
+        			Clip clip = AudioSystem.getClip();
+        			AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+        			Main.class.getResourceAsStream("/media/" + url));
+        			clip.open(inputStream);
+        			clip.start(); 
+      			} catch (Exception e) {
+        			System.err.println(e.getMessage());
+      			}
+    		}
+  		}).start();
 	}
 }
